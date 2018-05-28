@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>sol</title>
+    <script type="text/javascript" src="/static/js/socket.io.slim.js"></script>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script type="text/javascript">
+    window.onload = function() {
+        var socket = io();
+        socket.on('tick', function(c) {
+            requestAnimationFrame(function() {
+                document.getElementById('earth').object3D.position.set(
+                    c.earth.x,
+                    0, //c.earth.y,
+                    c.earth.y, //c.earth.z,
+                );
+                document.getElementById('moon').object3D.position.set(
+                    c.moon.x,
+                    0, //c.moon.y,
+                    c.moon.y, //c.moon.z,
+                );
+                document.getElementById('mars').object3D.position.set(
+                    c.mars.x,
+                    0, //c.mars.y,
+                    c.mars.y, //c.mars.z,
+                );
+                document.getElementById('time').setAttribute('value', c.t);
+            });
+        });
+    };
+    </script>
+  </head>
+  <body>
+    <a-scene style="background-color: #000; background-position: center; background-repeat: no-repeat;">
+      <a-sky src="http://cortex.io/sol/2k_stars.jpg"></a-sky>
+      <a-entity light="type: directional; color: #EEE; intensity: 1000;" position="-1 1 0"></a-entity>
+
+      <a-camera position="0 3000 0" rotation="-90 0 0" look-controls wasd-controls="acceleration: 50000;">
+          <a-text id="time" position="0 0 -1" rotation="0 0 0" color="#ffffff" height="1" width="1" value=""></a-text>
+      </a-camera>
+
+      <a-entity id="sun" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/2k_sun.jpg; shader: flat;">
+        <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
+      </a-entity>
+
+      <a-entity id="earth" rotation="0 23 0" scale="1 1 1" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/earth_atmos_4096.jpg; shader: flat;">
+        <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
+      </a-entity>
+
+      <a-entity id="moon" scale="0.2727 0.2727 0.2727" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="shader: flat;">
+        <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
+      </a-entity>
+
+      <a-entity id="mars" scale="0.5320 0.5320 0.5320" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/mars.jpg; shader: flat;">
+        <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>

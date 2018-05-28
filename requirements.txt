@@ -1,0 +1,5 @@
+astropy==3.0.2
+eventlet==0.23.0
+Flask==1.0.2
+Flask-SocketIO==3.0.0
+jplephem==2.7

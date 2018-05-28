@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>sol</title>
+    <style type="text/css">
+    html, body, canvas {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+    </style>
+    <script type="text/javascript" src="/static/js/socket.io.slim.js"></script>
+    <script type="text/javascript">
+    function draw(ctx, c) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.translate(canvas.width * 0.5, canvas.height * 0.5);
+
+        ctx.fillText('\u2609', 0, 0);
+        ctx.fillText('\u2642', c.mars.x, c.mars.y);
+        ctx.fillText('\u2641', c.earth.x, c.earth.y);
+        ctx.fillText('.', c.moon.x, c.moon.y);
+
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+    }
+    window.onload = function() {
+        var canvas = document.getElementById('canvas');
+        canvas.width = document.body.clientWidth;
+        canvas.height = document.body.clientHeight;
+
+        var ctx = canvas.getContext('2d');
+        ctx.font = '32px serif';
+
+        var socket = io();
+
+        socket.on('tick', function(c) {
+            requestAnimationFrame(function() {
+                draw(ctx, c);
+            });
+        });
+    };
+    </script>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+</body>
+</html>
