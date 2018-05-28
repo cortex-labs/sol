@@ -1,5 +1,6 @@
 astropy==3.0.2
 eventlet==0.23.0
+gunicorn==19.8.1
 Flask==1.0.2
 Flask-SocketIO==3.0.0
 jplephem==2.7
