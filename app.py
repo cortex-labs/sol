@@ -21,11 +21,24 @@ def tick():
     while True:
         t = Time.now() + TimeDelta(86400 * count, format='sec')
 
-        mars = get_body_barycentric('Mars', t)
+        mercury = get_body_barycentric('Mercury', t)
+        venus = get_body_barycentric('Venus', t)
         earth = get_body_barycentric('Earth', t)
         moon = get_body_barycentric('Moon', t)
+        mars = get_body_barycentric('Mars', t)
+        jupiter = get_body_barycentric('Jupiter', t)
 
         socketio.emit('tick', {
+            'mercury': {
+                'x': round(mercury.x.value / SCALE, 2),
+                'y': round(mercury.y.value / SCALE, 2),
+                'z': round(mercury.z.value / SCALE, 2),
+            },
+            'venus': {
+                'x': round(venus.x.value / SCALE, 2),
+                'y': round(venus.y.value / SCALE, 2),
+                'z': round(venus.z.value / SCALE, 2),
+            },
             'earth': {
                 'x': round(earth.x.value / SCALE, 2),
                 'y': round(earth.y.value / SCALE, 2),
@@ -40,6 +53,11 @@ def tick():
                 'x': round(mars.x.value / SCALE, 2),
                 'y': round(mars.y.value / SCALE, 2),
                 'z': round(mars.z.value / SCALE, 2),
+            },
+            'jupiter': {
+                'x': round(jupiter.x.value / SCALE, 2),
+                'y': round(jupiter.y.value / SCALE, 2),
+                'z': round(jupiter.z.value / SCALE, 2),
             },
             't': str(t),
         })

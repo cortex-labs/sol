@@ -10,20 +10,36 @@
         var socket = io();
         socket.on('tick', function(c) {
             requestAnimationFrame(function() {
+                // z and y axes are swapped because the camera is looking down along the y-axis
+                document.getElementById('mercury').object3D.position.set(
+                    c.mercury.x,
+                    c.mercury.z,
+                    c.mercury.y,
+                );
+                document.getElementById('venus').object3D.position.set(
+                    c.venus.x,
+                    c.venus.z,
+                    c.venus.y,
+                );
                 document.getElementById('earth').object3D.position.set(
                     c.earth.x,
-                    0, //c.earth.y,
-                    c.earth.y, //c.earth.z,
+                    c.earth.z,
+                    c.earth.y,
                 );
                 document.getElementById('moon').object3D.position.set(
                     c.moon.x,
-                    0, //c.moon.y,
-                    c.moon.y, //c.moon.z,
+                    c.moon.z,
+                    c.moon.y,
                 );
                 document.getElementById('mars').object3D.position.set(
                     c.mars.x,
-                    0, //c.mars.y,
-                    c.mars.y, //c.mars.z,
+                    c.mars.z,
+                    c.mars.y,
+                );
+                document.getElementById('jupiter').object3D.position.set(
+                    c.jupiter.x,
+                    c.jupiter.z,
+                    c.jupiter.y,
                 );
                 document.getElementById('time').setAttribute('value', c.t);
             });
@@ -43,6 +59,14 @@
         <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
       </a-entity>
 
+      <a-entity id="mercury" scale="0.3829 0.3829 0.3829" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/mercury.jpg; shader: flat;">
+        <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="infinite" easing="linear"></a-animation>
+      </a-entity>
+
+      <a-entity id="venus" scale="0.9499 0.9499 0.9499" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/venus.jpg; shader: flat;">
+          <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="infinite" easing="linear"></a-animation>
+      </a-entity>
+
       <a-entity id="earth" rotation="0 23 0" scale="1 1 1" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/earth_atmos_4096.jpg; shader: flat;">
         <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
       </a-entity>
@@ -53,6 +77,10 @@
 
       <a-entity id="mars" scale="0.5320 0.5320 0.5320" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/mars.jpg; shader: flat;">
         <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
+      </a-entity>
+
+      <a-entity id="jupiter" scale="10.97 10.97 10.97" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/jupiter.jpg; shader: flat;">
+          <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="infinite" easing="linear"></a-animation>
       </a-entity>
     </a-scene>
   </body>
