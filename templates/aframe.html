@@ -49,7 +49,7 @@
   </head>
   <body>
     <a-scene effects="bloom, fxaa" fxaa style="background-color: #000;">
-      <a-entity light="type: directional; color: #EEE; intensity: 1000;" position="-1 1 0"></a-entity>
+      <a-entity light="type: point; color: #EEE; intensity: 1; castShadow: true;" position="0 0 0"></a-entity>
 
       <a-camera position="0 7000 0" rotation="-90 0 0" look-controls wasd-controls="wsAxis: y; acceleration: 50000;">
           <a-text id="time" position="-1 0 -1" rotation="0 0 0" color="#ffffff" height="1" width="1" value=""></a-text>
@@ -59,27 +59,27 @@
         <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
       </a-entity>
 
-      <a-entity id="mercury" scale="0.3829 0.3829 0.3829" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/mercury.jpg; shader: flat;">
+      <a-entity id="mercury" scale="0.3829 0.3829 0.3829" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/mercury.jpg; shader: standard;">
         <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="infinite" easing="linear"></a-animation>
       </a-entity>
 
-      <a-entity id="venus" scale="0.9499 0.9499 0.9499" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/venus.jpg; shader: flat;">
+      <a-entity id="venus" scale="0.9499 0.9499 0.9499" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/venus.jpg; shader: standard;">
           <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="infinite" easing="linear"></a-animation>
       </a-entity>
 
-      <a-entity id="earth" rotation="0 23 0" scale="1 1 1" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/earth_atmos_4096.jpg; shader: flat;">
+      <a-entity id="earth" rotation="0 23 0" scale="1 1 1" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/earth_atmos_4096.jpg; shader: standard;">
         <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
       </a-entity>
 
-      <a-entity id="moon" scale="0.2727 0.2727 0.2727" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="shader: flat;">
+      <a-entity id="moon" scale="0.2727 0.2727 0.2727" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="shader: standard;">
         <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
       </a-entity>
 
-      <a-entity id="mars" scale="0.5320 0.5320 0.5320" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/mars.jpg; shader: flat;">
+      <a-entity id="mars" scale="0.5320 0.5320 0.5320" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/mars.jpg; shader: standard;">
         <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
       </a-entity>
 
-      <a-entity id="jupiter" scale="10.97 10.97 10.97" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/jupiter.jpg; shader: flat;">
+      <a-entity id="jupiter" scale="10.97 10.97 10.97" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/jupiter.jpg; shader: standard;">
           <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="infinite" easing="linear"></a-animation>
       </a-entity>
     </a-scene>
