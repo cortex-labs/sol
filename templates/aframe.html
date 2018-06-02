@@ -18,11 +18,11 @@
         socket.on('tick', function(c) {
             requestAnimationFrame(function() {
                 // z and y axes are swapped because the camera is looking down along the y-axis
-                mercury.set(c.mercury.x, c.mercury.z, c.mercury.y);
-                venus.set(c.venus.x, c.venus.z, c.venus.y);
-                earth.set(c.earth.x, c.earth.z, c.earth.y);
-                mars.set(c.mars.x, c.mars.z, c.mars.y);
-                jupiter.set(c.jupiter.x, c.jupiter.z, c.jupiter.y);
+                mercury.set(-c.mercury.x, c.mercury.z, c.mercury.y);
+                venus.set(-c.venus.x, c.venus.z, c.venus.y);
+                earth.set(-c.earth.x, c.earth.z, c.earth.y);
+                mars.set(-c.mars.x, c.mars.z, c.mars.y);
+                jupiter.set(-c.jupiter.x, c.jupiter.z, c.jupiter.y);
                 time.setAttribute('value', c.t);
             });
         });
