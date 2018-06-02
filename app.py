@@ -24,7 +24,6 @@ def tick():
         mercury = get_body_barycentric('Mercury', t)
         venus = get_body_barycentric('Venus', t)
         earth = get_body_barycentric('Earth', t)
-        moon = get_body_barycentric('Moon', t)
         mars = get_body_barycentric('Mars', t)
         jupiter = get_body_barycentric('Jupiter', t)
 
@@ -43,11 +42,6 @@ def tick():
                 'x': round(earth.x.value / SCALE, 2),
                 'y': round(earth.y.value / SCALE, 2),
                 'z': round(earth.z.value / SCALE, 2),
-            },
-            'moon': {
-                'x': round(moon.x.value / SCALE, 2),
-                'y': round(moon.y.value / SCALE, 2),
-                'z': round(moon.z.value / SCALE, 2),
             },
             'mars': {
                 'x': round(mars.x.value / SCALE, 2),

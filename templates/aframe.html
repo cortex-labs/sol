@@ -26,11 +26,6 @@
                     c.earth.z,
                     c.earth.y,
                 );
-                document.getElementById('moon').object3D.position.set(
-                    c.moon.x,
-                    c.moon.z,
-                    c.moon.y,
-                );
                 document.getElementById('mars').object3D.position.set(
                     c.mars.x,
                     c.mars.z,
@@ -68,10 +63,6 @@
       </a-entity>
 
       <a-entity id="earth" rotation="0 23 0" scale="1 1 1" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="src: http://cortex.io/sol/earth_atmos_4096.jpg; shader: standard; roughness: 1;">
-        <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
-      </a-entity>
-
-      <a-entity id="moon" scale="0.2727 0.2727 0.2727" position="0 0 0" geometry="primitive: sphere; radius: 30; segmentsHeight: 100; segmentsWidth: 100;" material="shader: standard; roughness: 1;">
         <a-animation attribute="rotation" dur="3000" from="0 0 0" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
       </a-entity>
 
