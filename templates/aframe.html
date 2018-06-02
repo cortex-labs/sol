@@ -7,36 +7,23 @@
     <script src="https://wizgrav.github.io/aframe-effects/dist/aframe-effects.min.js"></script>
     <script type="text/javascript">
     window.onload = function() {
-        var socket = io();
+        var socket = io(),
+            mercury = document.getElementById('mercury').object3D.position,
+            venus = document.getElementById('venus').object3D.position,
+            earth = document.getElementById('earth').object3D.position,
+            mars = document.getElementById('mars').object3D.position,
+            jupiter = document.getElementById('jupiter').object3D.position,
+            time = document.getElementById('time');
+
         socket.on('tick', function(c) {
             requestAnimationFrame(function() {
                 // z and y axes are swapped because the camera is looking down along the y-axis
-                document.getElementById('mercury').object3D.position.set(
-                    c.mercury.x,
-                    c.mercury.z,
-                    c.mercury.y,
-                );
-                document.getElementById('venus').object3D.position.set(
-                    c.venus.x,
-                    c.venus.z,
-                    c.venus.y,
-                );
-                document.getElementById('earth').object3D.position.set(
-                    c.earth.x,
-                    c.earth.z,
-                    c.earth.y,
-                );
-                document.getElementById('mars').object3D.position.set(
-                    c.mars.x,
-                    c.mars.z,
-                    c.mars.y,
-                );
-                document.getElementById('jupiter').object3D.position.set(
-                    c.jupiter.x,
-                    c.jupiter.z,
-                    c.jupiter.y,
-                );
-                document.getElementById('time').setAttribute('value', c.t);
+                mercury.set(c.mercury.x, c.mercury.z, c.mercury.y);
+                venus.set(c.venus.x, c.venus.z, c.venus.y);
+                earth.set(c.earth.x, c.earth.z, c.earth.y);
+                mars.set(c.mars.x, c.mars.z, c.mars.y);
+                jupiter.set(c.jupiter.x, c.jupiter.z, c.jupiter.y);
+                time.setAttribute('value', c.t);
             });
         });
     };
