@@ -59,7 +59,7 @@ def tick():
                 'y': round(jupiter.y.value / SCALE, 2),
                 'z': round(jupiter.z.value / SCALE, 2),
             },
-            't': str(t),
+            't': str(t.to_datetime().replace(microsecond=0).isoformat()) + 'Z',
         })
 
         socketio.sleep(0.01)
